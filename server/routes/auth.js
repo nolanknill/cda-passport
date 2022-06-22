@@ -37,11 +37,15 @@ router.get('/profile', (req, res) => {
 
 // Create a logout endpoint
 router.get('/logout', (req, res) => {
-  // Passport adds the logout method to request, it will end user session
-  req.logout();
-
-  // Redirect the user back to client-side application
-  res.redirect(process.env.CLIENT_URL);
+  //  <= version 0.5.3 Passport
+  // req.logout();
+  
+  //  >= version 0.6.0 Passport
+  req.logout((err) => {
+    if (err) { return next(err); }
+    // Redirect the user back to client-side application
+    res.redirect(process.env.CLIENT_URL);
+  });
 });
 
 // TODO: Remove after testing

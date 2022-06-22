@@ -140,8 +140,10 @@ passport.deserializeUser((userId, done) => {
 // =========================================
 
 const authRoutes = require('./routes/auth');
+const postsRoutes = require('./routes/posts');
 
 app.use('/auth', authRoutes);
+app.use('/posts', postsRoutes);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server listening on port ${PORT}.`);
