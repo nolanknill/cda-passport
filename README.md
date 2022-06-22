@@ -9,5 +9,7 @@
 
 ### Server-Side
 - `cd server` (from root)
+- `cp .env.sample .env`
+    - Update .env with your DB username, password, and database
 - `npm i`
 - `npm start`
